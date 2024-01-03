@@ -1,0 +1,58 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+	<div class="row">
+		<div class="col-lg-12">
+
+			<!-- Sectiunea pentru afișarea coșului de cumpărături -->
+			<div class="box-element">
+
+				<!-- Link pentru a continua cumpărăturile -->
+				<a  class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+				<br>
+				<br>
+
+				<!-- Tabel pentru a afișa numărul total de produse și suma totală -->
+				<table class="table">
+					<tr>
+						<th><h5>Items: <strong>3</strong></h5></th>
+						<th><h5>Total:<strong> 42 RON</strong></h5></th>
+						<th>
+							<!-- Buton pentru a merge la pagina de checkout -->
+							<a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
+						</th>
+					</tr>
+				</table>
+
+			</div>
+
+			<br>
+			<div class="box-element">
+				<!-- Rând pentru antetul tabelului cu numele coloanelor -->
+				<div class="cart-row">
+					<div style="flex:2"></div>
+					<div style="flex:2"><strong>Item</strong></div>
+					<div style="flex:1"><strong>Price</strong></div>
+					<div style="flex:1"><strong>Quantity</strong></div>
+					<div style="flex:1"><strong>Total</strong></div>
+				</div>
+				<!-- Rând pentru fiecare produs din coș -->
+				<div class="cart-row">
+					<div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}"></div>
+					<div style="flex:2"><p>Product 1</p></div>
+					<div style="flex:1"><p>20 RON</p></div>
+					<div style="flex:1">
+						<p class="quantity">2</p>
+						<div class="quantity">
+							<img class="chg-quantity" src="{% static  'images/arrow-up.png' %}">
+					
+							<img class="chg-quantity" src="{% static  'images/arrow-down.png' %}">
+						</div>
+					</div>
+					<div style="flex:1"><p>32 RON</p></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock content %}
