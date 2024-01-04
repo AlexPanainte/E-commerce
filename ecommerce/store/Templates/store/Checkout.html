@@ -73,7 +73,7 @@
 
                 <!-- Informații despre total și cantitatea de produse -->
                 <h5>Items:   {{ order.get_cart_items }}</h5>
-                <h5>Total:   {{ order.get_cart_total|floatformat:2 }} Ron</h5>
+                <h5>Total:   {{ order.get_cart_total }} Ron</h5>
             </div>
         </div>
     </div>
@@ -140,6 +140,22 @@
                 userFormD.email = form.city.value
                 
             }
+
+            var url='/process_order/'
+            fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken':csrftoken,
+                },
+                body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
+            })
+            .then((response) => response.json())
+            .then((data) =>{
+                console.log('Success:', data);
+                alert('Transaction completed');
+                window.location.href = "{% url 'store'%}"
+            })
 
         }
     </script>
