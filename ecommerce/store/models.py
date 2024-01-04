@@ -41,15 +41,30 @@ class Order(models.Model):
     
     @property
     def get_cart_total(self):
+
         orderitems=self.orderitem_set.all()
         total = sum([item.get_total for item in orderitems])
+
         return total
     
     @property
     def get_cart_items(self):
+
         orderitems=self.orderitem_set.all()
         total = sum([item.quantity for item in orderitems])
+
         return total
+    
+    @property
+    def shipping(self):
+
+        shipping=False
+        orderitems=self.orderitem_set.all()
+        for i in orderitems:
+            if i.product.digital == False:
+                shipping = True
+
+        return shipping
     
 # Clasa OrderItem, care reprezintă elementele individuale dintr-o comandă.
 class OrderItem(models.Model):
