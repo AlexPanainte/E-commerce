@@ -136,8 +136,8 @@
             }
 
             if(user == 'AnonymousUser'){
-                userFormData.name = form.address.value
-                userFormData.email = form.city.value
+                userFormData.name = form.name.value
+                userFormData.email = form.email.value
                 
             }
 
@@ -159,7 +159,6 @@
                 document.cookie = 'cart='+ JSON.stringify(cart) + ";domain=;path=/"
                 window.location.href = "{% url 'store'%}"
             })
-
         }
     </script>
 {% endblock content %}
