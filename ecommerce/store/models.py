@@ -16,7 +16,7 @@ class Product(models.Model):
     name    = models.CharField(max_length=200)
     price   = models.DecimalField(max_digits=7,decimal_places=2)
     digital = models.BooleanField(default=False, null=True, blank=True)
-    image   =models.ImageField(null=True, blank=True)
+    image   = models.ImageField(null=True, blank=True)
 
     def __str__(self) :
         return self.name
@@ -60,6 +60,7 @@ class Order(models.Model):
 
         shipping=False
         orderitems=self.orderitem_set.all()
+
         for i in orderitems:
             if i.product.digital == False:
                 shipping = True
@@ -82,11 +83,11 @@ class OrderItem(models.Model):
 class ShippingAddress(models.Model):
     customer  = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
     order     = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
-    addrress  = models.CharField(max_length=200, null=False)
+    address  = models.CharField(max_length=200, null=False)
     city      = models.CharField(max_length=200, null=False)
-    state     = models.CharField(max_length=200, null=False)
+    county     = models.CharField(max_length=200, null=False)
     zipcode   = models.CharField(max_length=200, null=False)
     date_aded = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.addrress
+        return self.address
