@@ -1,5 +1,6 @@
 {% extends 'store/main.html' %}
 {% load static %}
+
 {% block content %}
     <div class="row">
         <div class="col-lg-12">
@@ -41,9 +42,9 @@
                             <div style="flex:1">
                                 <p class="quantity">{{ item.quantity }}</p>
                                 <div class="quantity">
-                                    <img data-product={{item.product.id}} data-action="add"  class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}">
-                                    <img data-product={{item.product.id}} data-action="remove"  class="chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}">
-
+                                    <!-- Imagini pentru a mări și micșora cantitatea -->
+                                    <img data-product={{item.product.id}} data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}">
+                                    <img data-product={{item.product.id}} data-action="remove" class="chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}">
                                 </div>
                             </div>
                             <div style="flex:1"><p>{{ item.get_total|floatformat:2 }} RON</p></div>
