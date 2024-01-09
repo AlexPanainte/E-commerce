@@ -24,3 +24,5 @@ File Structure
 -views.py: Implements the logic for displaying and manipulating data in web pages
 
 -utils.py: Utility functions for managing the shopping cart and processing orders.
+
+![img-10](https://github.com/AlexPanainte/E-commerce/assets/126809877/403af58e-790a-4df6-87bc-40b13cb6322b)
